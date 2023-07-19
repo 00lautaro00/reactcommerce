@@ -1,24 +1,16 @@
-import { useSelector } from "react-redux"
-import { CardProduct } from "../card/Card";
-
-
+import { useSelector } from "react-redux";
+import { CarouselContainer } from "../carousel/Carousel";
+import { Container } from "@mui/material";
 
 export const Main = () => {
-    const state = useSelector(state => state.cell.value.results);
-    return ( 
+  const state = useSelector((state) => state);
+  return (
     <>
-    <div style={{display:"flex", flexWrap: "wrap", padding:"4rem 10rem", alignItems:"center", justifyContent:"center", background:"#f5f5f5"}}>
-        {
-        state?.slice(0,12).map(data => (
-                <CardProduct key={data.id} data={data}/>
-            ))
-        }
-    </div>
+      <Container sx={{padding:"2rem 0"}}>
+          <CarouselContainer product={state.cell.value.results} text={"Ofertas"} />
+          <CarouselContainer product={state.electronics.value.results} text={"Mas Ofertas"} />
+          <CarouselContainer product={state.videogames.value.results} text={"Tal vez te interese"} />
+      </Container>
     </>
-    )
-}
-
-
-
-
-
+  );
+};
