@@ -20,11 +20,13 @@ const getData = async (url, options) => {
 const responseElectronics = await getData(urlElectronics, options);
 const responseCell = await getData(urlCell, options);
 const responseVideoGames  = await getData(urlVideoGames, options);
+const allProduct = [...responseCell.results, ...responseElectronics.results, ...responseVideoGames.results]
 
 export {
     responseCell,
     responseElectronics,
-    responseVideoGames
+    responseVideoGames,
+    allProduct
 }
 
 

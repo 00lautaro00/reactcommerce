@@ -6,10 +6,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { AddShoppingCart } from '@mui/icons-material';
-import {  useNavigate } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
 export const CardProduct = ({item}) => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   return (
     <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"space-around", alignItems:"center"}}>
       {
@@ -32,7 +32,11 @@ export const CardProduct = ({item}) => {
           <Button size="small">
             <AddShoppingCart />
           </Button>
-          <Button size="small" onClick={(e) =>console.log(navigate("/product")) }>Learn More</Button>
+          <Button size="small">
+            <Link to={`products/${data.id}`}>
+            Learn More
+            </Link>
+          </Button>
         </CardActions>
       </Card>
       ))
