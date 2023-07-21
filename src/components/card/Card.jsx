@@ -17,15 +17,15 @@ export const CardProduct = ({item}) => {
         <Card key={data.id} sx={{ maxWidth: 200, height:300}}>
         <CardMedia
           sx={{ height: 120, boxShadow:"1px 1px 1px gray "}}
-          image={data.thumbnail}
+          image={data.image}
           title={data.title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            ${parseInt(data.installments.amount, 10)}
+            ${parseInt(data.price, 10)}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          {data.title.slice(0,30)}
+          {data.title.slice(0,20)}
           </Typography>
         </CardContent>
         <CardActions>
@@ -33,7 +33,7 @@ export const CardProduct = ({item}) => {
             <AddShoppingCart />
           </Button>
           <Button size="small">
-            <Link to={`products/${data.id}`}>
+            <Link to={`products/${data.title}`}>
             Learn More
             </Link>
           </Button>

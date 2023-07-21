@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { responseVideoGames } from "../../api/api";
+import { responseVideoGames, responseProduct } from "../../api/api";
 
-
+console.log(responseProduct)
 const INITIAL_STATE = {
-    value : responseVideoGames
+    value : responseProduct
 }
 
 export const videoGamesSlicer = createSlice({

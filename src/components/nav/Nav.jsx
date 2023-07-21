@@ -154,7 +154,7 @@ export const Nav = () => {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, height:"3rem" }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton

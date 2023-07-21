@@ -5,7 +5,7 @@ import { Box, Typography } from '@mui/material';
 
 export const CarouselContainer = ({product, text}) => {
 
-    const productCarousel = [product.slice(0,5), product.slice(5,10), product.slice(10,15)];
+    const productCarousel = [product.slice(0,5), product.slice(5,10)];
 
     return (
 
