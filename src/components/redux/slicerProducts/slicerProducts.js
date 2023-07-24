@@ -16,6 +16,12 @@ export const slicerProducts = createSlice({
                 ...state, 
                 state
             }
+        },
+        filterProduct: (state) => {
+            return{
+                ...state,
+                
+            }
         }
     }
 })

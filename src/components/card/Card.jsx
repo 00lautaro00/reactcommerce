@@ -33,7 +33,7 @@ export const CardProduct = ({item}) => {
             <AddShoppingCart />
           </Button>
           <Button size="small">
-            <Link style={{textDecoration:"none"}} to={`products/${data.title}`}>
+            <Link style={{textDecoration:"none"}} to={`/products/${data.title}`}>
             Learn More
             </Link>
           </Button>

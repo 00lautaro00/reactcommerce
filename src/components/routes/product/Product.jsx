@@ -28,9 +28,16 @@ export const Product = ({product}) => {
               ${product.price}
             </Typography>
           <Rating value={product.rating.rate} name="read-only" readOnly />
-          <Typography variant="h5" color="skyblue">
-              Stock Disponible
-            </Typography>
+          {
+            product.rating.count ? 
+            <Typography variant="h5" color="skyblue">
+            Stock Disponible
+          </Typography>
+          :
+          <Typography variant="h5" color="red">
+             Sin Stock
+          </Typography>
+          }
             <Typography variant="h6">
               avaible:{product.rating.count}
             </Typography>

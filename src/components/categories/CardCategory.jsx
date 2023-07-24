@@ -1,4 +1,5 @@
 import { Card, CardMedia } from "@mui/material"
+import { Link } from "react-router-dom"
 
 
 export const CardCategory = ({ product }) => {
@@ -7,12 +8,14 @@ export const CardCategory = ({ product }) => {
             {
                 product.map(data => (
 
-                    <Card key={data.id} sx={{ width: 200, height: 200, margin:"1rem" }}>
+                    <Link key={data.id} to={`/products/${data.title}`}>
+                    <Card  sx={{ width: 200, height: 200, margin:"1rem" }}>
                         <CardMedia
                             sx={{ width: 200, height: 200, boxShadow: "1px 1px 1px gray " }}
                             image={data.image}
                         />
                     </Card>
+                    </Link>
                 ))
             }
 
