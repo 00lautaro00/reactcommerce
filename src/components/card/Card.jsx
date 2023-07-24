@@ -28,12 +28,12 @@ export const CardProduct = ({item}) => {
           {data.title.slice(0,20)}
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions >
           <Button size="small">
             <AddShoppingCart />
           </Button>
           <Button size="small">
-            <Link to={`products/${data.title}`}>
+            <Link style={{textDecoration:"none"}} to={`products/${data.title}`}>
             Learn More
             </Link>
           </Button>

@@ -1,21 +1,24 @@
 import { useSelector } from "react-redux";
 import { CarouselContainer } from "../carousel/Carousel";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+import { Categories } from "../categories/Categories";
 
 export const Main = () => {
   const state = useSelector((state) => state);
   return (
-    <>
-      <Container sx={{padding:"2rem 0"}}>
-        {/* <Box>
-        <CarouselContainer product={state.cell.value.results} text={"Ofertas"} />
-          <CarouselContainer product={state.electronics.value.results} text={"Mas Ofertas"} />
-        </Box> */}
-        <Box>
-          <CarouselContainer product={state.products.value} text={"Tal vez te interese"} />
-        </Box>
-          
-      </Container>
-    </>
+    <Container sx={{ padding: "4rem 0" }}>
+      <Box>
+        <Typography variant="h4">
+          Tal vez te interese
+        </Typography>
+        <CarouselContainer product={state.products.value} text={"Tal vez te interese"} />
+      </Box>
+      <Box>
+        <Typography variant="h4">
+          Categories
+        </Typography>
+        <Categories product={state.products.value} />
+      </Box>
+    </Container>
   );
 };
