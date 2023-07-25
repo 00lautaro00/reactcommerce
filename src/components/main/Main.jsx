@@ -8,15 +8,13 @@ export const Main = () => {
   return (
     <Container sx={{ padding: "4rem 0" }}>
       <Box>
-        <Typography variant="h4">
-          Tal vez te interese
-        </Typography>
-        <CarouselContainer product={state.products.value} text={"Tal vez te interese"} />
+        <Typography variant="h4">Maybe you are interested</Typography>
+        <CarouselContainer
+          product={state.products.value}
+        />
       </Box>
       <Box>
-        <Typography variant="h4">
-          Categories
-        </Typography>
+        <Typography variant="h4">Categories</Typography>
         <Categories product={state.products.value} />
       </Box>
     </Container>

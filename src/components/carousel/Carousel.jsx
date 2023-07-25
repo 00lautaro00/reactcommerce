@@ -10,7 +10,7 @@ export const CarouselContainer = ({product}) => {
     return (
 
         <Box sx={{marginBottom:"3rem", background:"#f5f5f5", padding:"2rem"}}>
-        
+         
             <Carousel height={300} sx={{width:"100%"}} autoPlay={false} indicators={false}>
            {
                productCarousel.map((item, i) => <CardProduct key={i} item={item} />)

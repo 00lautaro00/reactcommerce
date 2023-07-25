@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes as RoutesApp } from "react-router-dom"
 import { Layout } from "../layout/Layout"
 import { Main } from "../main/Main"
 import { Products } from "./products/Products"
+import { Cart } from "../cart/Cart"
+import { CartAddContainer } from "../cart/CartAddContainer"
 
 
 
@@ -18,6 +20,10 @@ export const Routes = () => {
             <Route path="/products" >
                 <Route index element={<Products />}/>
                 <Route path=":product" element={<Products />}/>
+            </Route>
+            <Route path="/cart" >
+                <Route index element={<Cart />}/>
+                <Route path={":product"} element={<CartAddContainer />}/>
             </Route>
         </RoutesApp>
         </Layout>

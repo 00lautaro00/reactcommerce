@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { responseVideoGames, responseProduct } from "../../api/api";
 
-console.log(responseProduct)
 const INITIAL_STATE = {
     value : responseProduct
 }

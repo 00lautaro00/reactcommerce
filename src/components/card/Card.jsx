@@ -6,15 +6,21 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { AddShoppingCart } from '@mui/icons-material';
-import {  Link } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { cartCount } from '../redux/slicerCart/slicerCart';
+import { handles } from '../helpers/handles';
 
 export const CardProduct = ({item}) => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {handleCart} = handles(dispatch,navigate,cartCount)
+
   return (
     <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"space-around", alignItems:"center"}}>
       {
       item?.map(data => (
-        <Card key={data.id} sx={{ maxWidth: 200, height:300}}>
+        <Card key={data.id} sx={{ maxWidth: 200, height:270}}>
         <CardMedia
           sx={{ height: 120, boxShadow:"1px 1px 1px gray "}}
           image={data.image}
@@ -29,12 +35,12 @@ export const CardProduct = ({item}) => {
           </Typography>
         </CardContent>
         <CardActions >
-          <Button size="small">
+          <Button size="small" onClick={() => handleCart(data)}>
             <AddShoppingCart />
           </Button>
           <Button size="small">
             <Link style={{textDecoration:"none"}} to={`/products/${data.title}`}>
-            Learn More
+            See More
             </Link>
           </Button>
         </CardActions>

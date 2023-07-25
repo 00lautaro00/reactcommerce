@@ -9,8 +9,8 @@ export const Products = () => {
 const navigate = useNavigate()
 const params = useParams();
 const allProduct = useSelector(state => state.products.value)
-const product = allProduct.find(item => params.product.toLowerCase().replaceAll(" ", "") === item.title.toLowerCase().replaceAll(" ", ""));
-const category = allProduct.filter(categories => product.category.toLowerCase().replaceAll(" ", "") === categories.category.toLowerCase().replaceAll(" ",""));
+const product = allProduct.find(item => params.product.toLowerCase().trim() === item.title.toLowerCase().trim());
+const category = allProduct.filter(categories => product.category.toLowerCase().trim() === categories.category.toLowerCase().trim());
 
 
     return(

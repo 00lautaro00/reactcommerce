@@ -22,7 +22,7 @@ export const Categories = ({ product }) => {
 
    const filterProductForCategory = (e) => {
     e.preventDefault();
-    const productFiltered = product.filter ( pr => pr.category.toLowerCase().replaceAll(" ", "") === e.target.outerText.toLowerCase().replaceAll(" ", ""));
+    const productFiltered = product.filter ( pr => pr.category.toLowerCase().trim() === e.target.outerText.toLowerCase().trim());
     setProductCategory(productFiltered)
    }
    const defaultProductForCategory = (e) => {

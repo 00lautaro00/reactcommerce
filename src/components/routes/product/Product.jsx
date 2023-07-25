@@ -1,8 +1,15 @@
 import { Box, Button, Card,CardMedia, Container, Rating, Typography } from "@mui/material";
+import { handles } from "../../helpers/handles";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { cartCount } from "../../redux/slicerCart/slicerCart";
 
 
 
 export const Product = ({product}) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const {handleCart} = handles(dispatch,navigate,cartCount)
  
 
   return (
@@ -45,7 +52,7 @@ export const Product = ({product}) => {
           
           <Box sx={{display:"flex", flexDirection:"column"}}>
             
-            <Button variant="contained">
+            <Button variant="contained" onClick={() => handleCart(product)}>
               Add cart
             </Button>
             <Button variant="contained">
