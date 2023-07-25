@@ -1,30 +1,25 @@
-import { Box, Button, Card, CardContent, CardMedia, Typography } from "@mui/material"
+import { Container, Typography } from "@mui/material"
+import { useSelector } from "react-redux"
+import { CartProduct } from "./CartProduct";
 
 
 
-export const Cart  = ({product}) => {
+export const Cart  = () => {
+    window.scrollTo(0,0)
+    const cart = useSelector(state => state.cart.cartProduct);
+
+
     return ( 
-        <Box>
-            <Card >
-                <CardMedia sx={{width:50, height:50, borderRadius:50}} image={product.image} />
-                <CardContent >
-                    <Typography>
-                        {product.title}
-                    </Typography>
-                    <Typography>
-                        Add
-                    </Typography>
-                </CardContent>
-            </Card>
-            <Box>
-                <Button>
-                    See Cart
-                </Button>
-                <Button>
-                    Buy
-                </Button>
-            </Box>
+        <Container sx={{padding:"3rem 0"}}>
+            <Typography variant="h4">
+                Cart
+            </Typography>
+            {
+                cart.map(product =>(
+                    <CartProduct key={product.id} product={product}/>
+                ))
+            }
 
-        </Box>
+        </Container>
     )
 }

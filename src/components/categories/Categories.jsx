@@ -1,4 +1,4 @@
-import { Box, Button, Container } from "@mui/material";
+import { Box, Button, Container, Pagination } from "@mui/material";
 import { CardCategory } from "./CardCategory";
 import { useEffect, useState } from "react";
 
@@ -46,6 +46,7 @@ export const Categories = ({ product }) => {
          </Box>
          <Box sx={{display:"flex" , flexWrap: "wrap", justifyContent: "center", alignItems: "center", padding: "2rem 0" }}>
             <CardCategory product={productCategory} />
+            <Pagination count={10} variant="outlined" color="primary" />
         </Box>
        </Container>
     )

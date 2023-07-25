@@ -9,10 +9,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { ShoppingCart } from "@mui/icons-material";
 import { Badge } from "@mui/material";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const Nav = () => {
+  const navigate = useNavigate()
   const cart = useSelector(state => state.cart);
-  console.log("cart", cart)
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: "black" }}>
@@ -26,12 +27,14 @@ export const Nav = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography onClick={() => navigate("/")} variant="h6" component="div" sx={{ flexGrow: 1, cursor:"pointer" }}>
             Anastasia Commerce
           </Typography>
-          <Badge badgeContent={cart.cart} color="error" sx={{marginRight:"1rem"}}>
-            <ShoppingCart color="white" />
-          </Badge>
+          <Button onClick={() => navigate("/cart")}>
+            <Badge badgeContent={cart.cart} color="error" sx={{ marginRight: "1rem" }}>
+              <ShoppingCart color="white" />
+            </Badge>
+          </Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

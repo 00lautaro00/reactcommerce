@@ -9,6 +9,7 @@ import { CarouselContainer } from "../carousel/Carousel";
 import { CartAdd } from "./CartAdd";
 
 export const CartAddContainer = () => {
+  window.scrollTo(0,0)
   const params = useParams();
   const allProduct = useSelector((state) => state.products.value);
   const product = allProduct.find((pr) =>pr.title.toLowerCase().trim() ===params.product.toLowerCase().trim());

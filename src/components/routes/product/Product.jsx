@@ -2,14 +2,14 @@ import { Box, Button, Card,CardMedia, Container, Rating, Typography } from "@mui
 import { handles } from "../../helpers/handles";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { cartCount } from "../../redux/slicerCart/slicerCart";
+import { cartCount, cartState } from "../../redux/slicerCart/slicerCart";
 
 
 
 export const Product = ({product}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {handleCart} = handles(dispatch,navigate,cartCount)
+  const {handleCart} = handles(dispatch,navigate,cartCount, cartState)
  
 
   return (

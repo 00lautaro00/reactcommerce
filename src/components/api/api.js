@@ -22,7 +22,7 @@ const responseElectronics = await getData(urlElectronics, options);
 const responseCell = await getData(urlCell, options);
 const responseVideoGames  = await getData(urlVideoGames, options);
 const responseProduct = await getData(urlProduct)
-const allProduct = [...responseCell.results, ...responseElectronics.results, ...responseVideoGames.results]
+const allProduct = [...responseCell.results, ...responseElectronics.results, ...responseVideoGames.results];
 
 export {
     responseCell,

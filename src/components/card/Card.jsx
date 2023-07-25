@@ -8,13 +8,13 @@ import Typography from '@mui/material/Typography';
 import { AddShoppingCart } from '@mui/icons-material';
 import {  Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { cartCount } from '../redux/slicerCart/slicerCart';
+import { cartCount, cartState } from '../redux/slicerCart/slicerCart';
 import { handles } from '../helpers/handles';
 
 export const CardProduct = ({item}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {handleCart} = handles(dispatch,navigate,cartCount)
+  const {handleCart} = handles(dispatch,navigate,cartCount,cartState)
 
   return (
     <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"space-around", alignItems:"center"}}>

@@ -28,11 +28,11 @@ const slicerCart = createSlice({
             
             return{
                 ...state,
-                cartProduct:[ action.payload]
+                cartProduct:[...state.cartProduct, action.payload]
             }
         }
     }
 })
 
-export const {stateController, cartCount} = slicerCart.actions;
+export const {stateController, cartCount, cartState} = slicerCart.actions;
 export default slicerCart.reducer
