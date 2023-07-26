@@ -2,7 +2,9 @@
 const urlElectronics ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1648";
 const urlVideoGames ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1144";
 const urlCell ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1051";
-const urlProduct = "https://fakestoreapi.com/products"
+const urlProduct = "https://fakestoreapi.com/products";
+const urlProductLimits = 'https://fakestoreapi.com/products?limit=8';
+const urlProductCategories = 'https://fakestoreapi.com/products/categories';
 
 
 const options = {
@@ -21,7 +23,10 @@ const getData = async (url, options) => {
 const responseElectronics = await getData(urlElectronics, options);
 const responseCell = await getData(urlCell, options);
 const responseVideoGames  = await getData(urlVideoGames, options);
-const responseProduct = await getData(urlProduct)
+const responseProduct = await getData(urlProduct);
+const responseProductLimit = await getData(urlProductLimits);
+const responseProductCategories = await getData(urlProductCategories);
+
 const allProduct = [...responseCell.results, ...responseElectronics.results, ...responseVideoGames.results];
 
 export {
@@ -29,7 +34,9 @@ export {
     responseElectronics,
     responseVideoGames,
     allProduct,
-    responseProduct
+    responseProduct,
+    responseProductLimit,
+    responseProductCategories
 }
 
 

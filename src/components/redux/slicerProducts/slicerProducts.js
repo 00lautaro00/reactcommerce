@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { responseProduct } from "../../api/api";
+import { responseProduct, responseProductCategories, responseProductLimit } from "../../api/api";
 
 
 const INITIAL_STATE = {
-    value : responseProduct
+    value : responseProduct,
+    limit : responseProductLimit,
+    categories: responseProductCategories
 }
 
 

@@ -15,7 +15,7 @@ export const Main = () => {
       </Box>
       <Box>
         <Typography variant="h4">Categories</Typography>
-        <Categories product={state.products.value} />
+        <Categories product={state.products.value} fetchCategories={state.products.categories} />
       </Box>
     </Container>
   );
