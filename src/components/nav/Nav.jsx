@@ -35,7 +35,7 @@ export const Nav = () => {
               <ShoppingCart color="white" />
             </Badge>
           </Button>
-          <Button color="inherit">Login</Button>
+          <Button onClick={() => navigate("/login")} color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>

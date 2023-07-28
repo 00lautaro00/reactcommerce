@@ -5,6 +5,7 @@ const urlCell ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1051";
 const urlProduct = "https://fakestoreapi.com/products";
 const urlProductLimits = 'https://fakestoreapi.com/products?limit=8';
 const urlProductCategories = 'https://fakestoreapi.com/products/categories';
+const urlUsers = 'https://fakestoreapi.com/users';
 
 
 const options = {
@@ -26,6 +27,7 @@ const responseVideoGames  = await getData(urlVideoGames, options);
 const responseProduct = await getData(urlProduct);
 const responseProductLimit = await getData(urlProductLimits);
 const responseProductCategories = await getData(urlProductCategories);
+const responseUsers = await getData(urlUsers);
 
 const allProduct = [...responseCell.results, ...responseElectronics.results, ...responseVideoGames.results];
 
@@ -36,7 +38,8 @@ export {
     allProduct,
     responseProduct,
     responseProductLimit,
-    responseProductCategories
+    responseProductCategories,
+    responseUsers
 }
 
 
