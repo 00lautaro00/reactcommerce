@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Nav = () => {
   const navigate = useNavigate()
-  const cart = useSelector(state => state.cart);
+  const {cart, user} = useSelector(state => state);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: "black" }}>
@@ -35,7 +35,7 @@ export const Nav = () => {
               <ShoppingCart color="white" />
             </Badge>
           </Button>
-          <Button onClick={() => navigate("/login")} color="inherit">Login</Button>
+          <Button onClick={() => user.user ? navigate("login") : navigate(`/profile/${user.user.username}`)} color="inherit">{user.user ? "Profile":"Login"}</Button>
         </Toolbar>
       </AppBar>
     </Box>

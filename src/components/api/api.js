@@ -1,3 +1,5 @@
+import { url } from "../../constans/url";
+import { categories, product } from "../../endpoints/product";
 
 const urlElectronics ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1648";
 const urlVideoGames ="https://api.mercadolibre.com/sites/MLA/search?category=MLA1144";
@@ -24,9 +26,9 @@ const getData = async (url, options) => {
 const responseElectronics = await getData(urlElectronics, options);
 const responseCell = await getData(urlCell, options);
 const responseVideoGames  = await getData(urlVideoGames, options);
-const responseProduct = await getData(urlProduct);
+const responseProduct = await getData(`${url}${product}`);
 const responseProductLimit = await getData(urlProductLimits);
-const responseProductCategories = await getData(urlProductCategories);
+const responseProductCategories = await getData(`${url}${categories}`);
 const responseUsers = await getData(urlUsers);
 
 const allProduct = [...responseCell.results, ...responseElectronics.results, ...responseVideoGames.results];

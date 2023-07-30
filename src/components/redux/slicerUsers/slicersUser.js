@@ -1,13 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { responseUsers } from "../../api/api";
 
 const INITIAL_STATE = {
-    users: responseUsers
+    user: null
 }
 
 
 const slicerUsers = createSlice({
-    name:"users",
+    name:"user",
     initialState:INITIAL_STATE,
     reducers:{
         controllerUsers:(state)=>{
@@ -15,8 +14,14 @@ const slicerUsers = createSlice({
                 ...state,
                 state
             }
+        },
+        setLoginUser: (state, action) => {
+            return {
+                ...state,
+                user: action.payload
+            }
         }
     }
 })
-export const { controllerUsers } = slicerUsers.actions;
+export const { controllerUsers, setLoginUser } = slicerUsers.actions;
 export default slicerUsers.reducer

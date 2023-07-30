@@ -1,33 +1,37 @@
 import { createContext, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../components/utils/login/login";
+import { setLoginUser } from "../components/redux/slicerUsers/slicersUser";
 
 
 
 const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
-    const users = useSelector(state => state.users.users);
-    const [isAuth, setIsAuth] = useState(false);
-    const [user, setUser] = useState("");
+    const dispatch = useDispatch();
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async  (e) => {
         e.preventDefault();
-        const  userLogin = new FormData(e.currentTarget);
-        const isConfirm = users.find(user => user.email === userLogin.get("email") && user.password === userLogin.get("password"))
-        setIsAuth( !!isConfirm );
-        if(isAuth) navigate("/")
+        const  userLoginData = new FormData(e.currentTarget);
+        const username = userLoginData.get("email");
+        const password = userLoginData.get("password");
+        const user = await loginUser(username,password );
+        console.log("user", user)
+        if(user){
+            dispatch(setLoginUser({
+                token:user.token,
+                username: username
+            }))
+             navigate("/")
+        }
       };
 
-    const datas ={
-        user,
-        isAuth,
-        setIsAuth,
-        setUser,
+    const data ={
         handleSubmit
     }
-    return <AuthContext.Provider value={datas} >{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={data} >{children}</AuthContext.Provider>
 }
 
 export {AuthProvider}

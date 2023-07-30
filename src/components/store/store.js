@@ -14,6 +14,10 @@ export const store = configureStore({
         videogames: videoGamesSlicer,
         products: slicerProducts,
         cart: slicerCart,
-        users: slicersUser
-    }
+        user: slicersUser
+    },
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+        serializableCheck: false
+    })
 })

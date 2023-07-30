@@ -6,6 +6,7 @@ import { Cart } from "../cart/Cart";
 import { CartAddContainer } from "../cart/CartAddContainer";
 import { Login } from "../login/Login";
 import { AuthProvider } from "../../context/AuthContext";
+import { Profile } from "./profile/Profile";
 
 export const Routes = () => {
   return (
@@ -24,6 +25,10 @@ export const Routes = () => {
             </Route>
             <Route path="/login">
               <Route index element={<Login />} />
+            </Route>
+            <Route path="/profile" >
+              <Route index element={<Profile />} />
+              <Route path=":username"/>
             </Route>
           </RoutesApp>
         </Layout>
