@@ -35,7 +35,7 @@ export const Nav = () => {
               <ShoppingCart color="white" />
             </Badge>
           </Button>
-          <Button onClick={() => user.user ? navigate("login") : navigate(`/profile/${user.user.username}`)} color="inherit">{user.user ? "Profile":"Login"}</Button>
+          <Button onClick={() => user.user ?  navigate(`/profile/${user.user.username}`) : navigate("login") } color="inherit">{user.user ? "Profile":"Login"}</Button>
         </Toolbar>
       </AppBar>
     </Box>
